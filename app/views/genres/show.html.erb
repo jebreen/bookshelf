@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @genre.description %>
+</p>
+
+<p>
+  <strong>Fiction or non-fiction?:</strong>
+  <%= @genre.fiction ? 'Fiction' : 'Non-fiction' %>
+</p>
+
+<p>
+  <strong>Subgenre of:</strong>
+  <%= @genre.genre_id.nil? ? 'Nothing' : @genre.genre.description %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @genre.path %>
+</p>
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>

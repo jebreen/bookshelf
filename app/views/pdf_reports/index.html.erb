@@ -1,0 +1,9 @@
+<h1>PDF Reports</h1>
+<ul>
+  <% @reports.each do |report|  %>
+  <li>
+    <%= link_to "#{report[1][:title]}", "#{pdf_reports_path}/#{report[0]}.pdf", {:target => '_blank'} %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to 'Home', static_pages_url %>

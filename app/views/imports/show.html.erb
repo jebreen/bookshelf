@@ -1,0 +1,25 @@
+<h1>Import Titles</h1>
+<hr/>
+<p>Import complete.</p>
+<p><%= pluralize @books.count, 'book' %> <%= @books.count == 1 ? 'was' : 'were' %> created:</p>
+<table>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.names_text %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= pluralize @authors.count, 'author' %> <%= @authors.count == 1 ? 'was' : 'were' %> added: </p>
+<table>
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr/>
+
+<%= link_to 'Import again', imports_path %> <%= link_to 'Home', static_pages_path %>

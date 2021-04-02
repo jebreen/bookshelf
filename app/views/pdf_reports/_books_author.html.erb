@@ -1,0 +1,19 @@
+<% @authors.each do |author| %>
+  <h3><%= author %></h3>
+  <table style="width: 100%;" cols="2">
+  <% books = Book.all.select { |book| book.names_text == author }.sort_by{ |book| book.title } %>
+  <% books.each.with_index do |book, i| %>
+      <% if (i % 2).zero? and i > 0 %>
+        </tr>
+      <% end %>
+      <% if (i % 2).zero? %>
+        <tr>
+      <% end %>
+      <td style="width: 50%"><%= book.title %><br/></td>
+  <% end %>
+    <% if books.count.odd? %>
+      <td>&nbsp;</td>
+    <% end %>
+    </tr>
+  </table>
+<% end %>

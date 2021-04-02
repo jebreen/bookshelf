@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @author.name %></h1>
+<hr/>
+<table width="100%" cols="5">
+<% @author.books.each.with_index do |book, i| %>
+  <% if i % 5 == 0 && i != 0 %>
+    </tr>
+  <% end %>
+  <% if i % 5 == 0 %>
+    <tr>
+  <% end %>
+    <td>
+      <%= book.title %>
+      <% if book.authors.count > 1 %>
+        (with <%= (book.authors.map(&:name) - [@author.name]).to_sentence %>)
+      <% end %>
+    </td>
+<% end %>
+  </tr>
+</table>
+
+<%= link_to 'Edit Author', edit_author_path(@author) %> |
+<%= link_to 'Back to Authors', authors_path %>

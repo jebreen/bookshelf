@@ -1,0 +1,35 @@
+<h1>Import Titles</h1>
+<hr/>
+
+<% if not @message.nil? %>
+  <div class="error"><%= @message %></div>
+<% end %>
+
+<%= form_tag({action: :import}, multipart: true) do %>
+  <table>
+    <tr>
+      <th>File to Import:</th>
+      <td><%= file_field_tag :file %></td>
+    </tr>
+    <tr>
+      <th>File Type:</th>
+      <td>
+        <table>
+          <tr>
+            <td><%=  radio_button_tag 'file_type', '1', true %>Text File</td>
+            <td><%=  radio_button_tag 'file_type', '2' %>CSV File</td>
+          </tr>
+          <tr>
+            <td><%=  radio_button_tag 'file_type', '3' %>XML File</td>
+            <td><%=  radio_button_tag 'file_type', '4' %>JSON File</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><%= submit_tag 'Import' %></td>
+    </tr>
+  </table>
+<% end %>
+<hr/>
+<%= link_to 'Home', static_pages_path %>

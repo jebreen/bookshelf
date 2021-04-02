@@ -1,0 +1,17 @@
+<table cols='2' width="100%">
+  <tr>
+  <% Book.order(:title).each.with_index do |book, i| %>
+    <% if i % 2 == 0 and i != 0 %>
+      </tr>
+      <tr>
+    <% end %>
+    <td>
+      <strong><%= book.title %></strong><br/>
+      <em><%= book.authors.map(&:name).to_sentence %></em>
+    </td>
+  <% end %>
+  <% if Book.count.odd? %>
+    <td>&nbsp;</td>
+  <% end %>
+  </tr>
+</table>
